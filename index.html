@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="AwterSpacer DevOps builds digital experiences, websites, and brand systems beyond ordinary."
+  >
+
+  <title>AwterSpacer -- Build Beyond Ordinary</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="main-navigation" aria-label="Primary navigation">
+      <a class="brand-link" href="#home" aria-label="AwterSpacer home">
+        <img
+          src="images/image-logo.png"
+          alt="AwterSpacer logo"
+          width="160"
+          height="80"
+        >
+        <span>AwterSpacer</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-menu"
+      >
+        Menu
+      </button>
+
+      <ul id="primary-menu" class="navigation-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <a class="nav-contact-link" href="#contact">Start a project</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">AwterSpacer DevOps</p>
+
+        <h1 id="hero-title">Build beyond ordinary.</h1>
+
+        <p class="hero-description">
+          Digital experiences, websites, and brand systems for ideas with
+          somewhere better to go.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore our work</a>
+          <a class="button button-secondary" href="#plans">View plans</a>
+        </div>
+      </div>
+
+      <figure class="hero-visual">
+        <img
+          src="images/image-hero-logo.png"
+          alt="AwterSpacer abstract head and starburst mark"
+          width="500"
+          height="500"
+        >
+      </figure>
+    </section>
+
+    <section id="services" class="services-section" aria-labelledby="services-title">
+      <div class="section-heading">
+        <p class="eyebrow">Capabilities</p>
+        <h2 id="services-title">Designed to move. Built to last.</h2>
+        <p>
+          We combine visual direction, thoughtful interaction, and dependable
+          technology to create digital spaces that feel unmistakably yours.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <img
+            src="images/image-service-landing-pages.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>Landing pages</h3>
+          <p>
+            High-conversion pages designed to give your brand a stronger first
+            impression.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-websites.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>Business websites</h3>
+          <p>
+            Clear, credible, and scalable websites that give your business a
+            proper digital home.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-branding.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>Brand systems</h3>
+          <p>
+            Visual foundations that help your identity stay consistent across
+            every digital touchpoint.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-uiux.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>UI/UX design</h3>
+          <p>
+            Interfaces that feel intuitive, polished, and intentional from the
+            first interaction.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-motion.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>Motion and interaction</h3>
+          <p>
+            Purposeful movement and responsive details that give digital
+            experiences their energy.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-devops.png"
+            alt=""
+            width="120"
+            height="120"
+          >
+          <h3>DevOps and deployment</h3>
+          <p>
+            Reliable infrastructure, launch support, and workflows built for
+            growth after the website goes live.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="work-section" aria-labelledby="work-title">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="work-title">A few things we've built beyond ordinary.</h2>
+        <p>
+          From first impression to final interaction, every detail has a
+          purpose.
+        </p>
+      </div>
+
+      <div class="work-filters" aria-label="Portfolio categories">
+        <button type="button" data-filter="all" aria-pressed="true">
+          All work
+        </button>
+
+        <button type="button" data-filter="web" aria-pressed="false">
+          Web
+        </button>
+
+        <button type="button" data-filter="branding" aria-pressed="false">
+          Branding
+        </button>
+
+        <button type="button" data-filter="motion" aria-pressed="false">
+          Motion
+        </button>
+
+        <button type="button" data-filter="systems" aria-pressed="false">
+          Systems
+        </button>
+      </div>
+
+
+
+      <div class="projects-grid">
+        <article class="project-card" data-category="branding">
+          <a href="#contact">
+            <img
+              src="images/image1.jpg"
+              alt="Bakery promotional flyer designed by AwterSpacer"
+              width="900"
+              height="1200"
+            >
+            <div class="project-details">
+              <p class="project-category">Branding · Campaign</p>
+              <h3>Bakery campaign visual system</h3>
+              <p>
+                A bold promotional visual direction created for a local bakery
+                campaign.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <a href="#contact">
+            <img
+              src="images/image-project-website-01.jpg"
+              alt="Website project preview displayed on a desktop screen"
+              width="1400"
+              height="900"
+            >
+            <div class="project-details">
+              <p class="project-category">Web · UI/UX</p>
+              <h3>Modern business platform</h3>
+              <p>
+                A responsive, content-led website designed to make a growing
+                business easier to understand and trust.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-category="motion">
+          <a href="#contact">
+            <img
+              src="images/image-project-motion-01.jpg"
+              alt="Animated visual identity concept preview"
+              width="1400"
+              height="900"
+            >
+            <div class="project-details">
+              <p class="project-category">Motion · Identity</p>
+              <h3>Digital identity in motion</h3>
+              <p>
+                A flexible visual language with motion principles for digital
+                launches and campaigns.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="project-card" data-category="systems">
+          <a href="#contact">
+            <img
+              src="images/image-project-system-01.jpg"
+              alt="Development workflow and deployment system preview"
+              width="1400"
+              height="900"
+            >
+            <div class="project-details">
+              <p class="project-category">Systems · DevOps</p>
+              <h3>Reliable launch infrastructure</h3>
+              <p>
+                A maintainable deployment workflow designed for dependable
+                releases and future growth.
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="plans" class="plans-section" aria-labelledby="plans-title">
+      <div class="section-heading">
+        <p class="eyebrow">Plans</p>
+        <h2 id="plans-title">Choose your next space.</h2>
+        <p>
+          Flexible starting points for brands ready to look, feel, and operate
+          differently.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        <article class="plan-card">
+          <p class="plan-label">For a focused beginning</p>
+          <h3>Launch</h3>
+          <p class="plan-description">
+            A polished landing page for an offer, product, personal brand, or
+            upcoming release.
+          </p>
+
+          <ul class="plan-features">
+            <li>One-page website</li>
+            <li>Responsive layout</li>
+            <li>Core visual direction</li>
+            <li>Contact or conversion form</li>
+            <li>Launch support</li>
+          </ul>
+
+          <a class="button button-secondary" href="#contact">
+            Ask about Launch
+          </a>
+        </article>
+
+        <article class="plan-card plan-featured">
+          <p class="plan-label">For growing businesses</p>
+          <h3>Elevate</h3>
+          <p class="plan-description">
+            A complete website and design system for a business ready to create
+            a stronger digital presence.
+          </p>
+
+          <ul class="plan-features">
+            <li>Multi-page website</li>
+            <li>UI/UX and content structure</li>
+            <li>Brand and interface refinement</li>
+            <li>Performance-ready build</li>
+            <li>Deployment setup</li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">
+            Ask about Elevate
+          </a>
+        </article>
+
+        <article class="plan-card">
+          <p class="plan-label">For ambitious ideas</p>
+          <h3>Beyond</h3>
+          <p class="plan-description">
+            A custom digital experience combining strategy, identity,
+            interaction, engineering, and ongoing evolution.
+          </p>
+
+          <ul class="plan-features">
+            <li>Custom scope and strategy</li>
+            <li>Advanced interaction and motion</li>
+            <li>Full visual system</li>
+            <li>DevOps and deployment workflow</li>
+            <li>Ongoing improvement support</li>
+          </ul>
+
+          <a class="button button-secondary" href="#contact">
+            Build something custom
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="process" class="process-section" aria-labelledby="process-title">
+      <div class="section-heading">
+        <p class="eyebrow">How we work</p>
+        <h2 id="process-title">A clear path from idea to impact.</h2>
+      </div>
+
+      <ol class="process-list">
+        <li class="process-step">
+          <p class="process-number">01</p>
+          <h3>Discover</h3>
+          <p>
+            We define the opportunity, audience, goals, priorities, and the
+            problem your digital presence needs to solve.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">02</p>
+          <h3>Design</h3>
+          <p>
+            We turn strategy into a visual and structural direction that gives
+            every screen a purpose.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">03</p>
+          <h3>Build</h3>
+          <p>
+            We develop the experience with clean, responsive, maintainable
+            code and careful attention to performance.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">04</p>
+          <h3>Launch</h3>
+          <p>
+            We prepare the site, configure its deployment, test the essentials,
+            and take it live with confidence.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">05</p>
+          <h3>Evolve</h3>
+          <p>
+            We support the next iteration through improvements, new pages,
+            campaign work, and scalable systems.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="statement-section" aria-labelledby="statement-title">
+      <div class="statement-content">
+        <p class="eyebrow">The AwterSpacer mindset</p>
+        <h2 id="statement-title">
+          Ordinary gets built every day.<br>
+          We build what comes next.
+        </h2>
+      </div>
+
+      <img
+        src="images/image-statement-mark.png"
+        alt=""
+        width="420"
+        height="420"
+      >
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="eyebrow">About AwterSpacer</p>
+        <h2 id="about-title">Digital spaces with a point of view.</h2>
+      </div>
+
+      <div class="about-content">
+        <p class="about-introduction">
+          AwterSpacer creates websites, digital experiences, and visual systems
+          for brands that refuse to look like everyone else.
+        </p>
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <h3>Intentional design</h3>
+            <p>
+              Every visual and structural choice should make the message clearer
+              and the experience stronger.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Clean engineering</h3>
+            <p>
+              Strong creative work deserves a reliable technical foundation.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Fluid interaction</h3>
+            <p>
+              Motion and feedback should make a product feel alive, not
+              distracted.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Built for evolution</h3>
+            <p>
+              Your digital space should be ready for the version of your brand
+              that comes next.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="contact-content">
+        <p class="eyebrow">Start a project</p>
+        <h2 id="contact-title">Your next version starts here.</h2>
+        <p>
+          Have something worth building? Tell us about the idea, the goal, and
+          where you want to go next.
+        </p>
+
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:hello@awterspacer.com">
+            Start a project
+          </a>
+          <a class="button button-secondary" href="#work">See the work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand-link" href="#home" aria-label="Back to top">
+      <img
+        src="images/image-logo.png"
+        alt="AwterSpacer logo"
+        width="160"
+        height="80"
+      >
+      <span>AwterSpacer DevOps</span>
+    </a>
+
+    <div class="footer-navigation">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#plans">Plans</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-legal">
+      <p>© 2026 AwterSpacer. Build beyond ordinary.</p>
+      <a href="#home">Privacy</a>
+      <a href="#home">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>
+
