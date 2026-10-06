@@ -1707,6 +1707,99 @@ section > * {
 ------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
+  .pointer-light {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 32rem;
+    aspect-radio: 1;
+    border-ratio: 50%;
+    opacity: 0;
+    background:
+      radial-gradient(
+        circle,
+        rgba(174, 255, 30, 0.16) 0%,
+        rgba(134, 240, 0, 0.09) 20%,
+        rgba(212, 91, 54, 0.05) 43%,
+        rgba(2, 6, 18, 0) 70%
+      );
+    mix-blend-mode: screen;
+    pointer-events: none;
+    transform: translate3d(-50%, -50%, 0) scale(0.72);
+    transition:
+      opacity 280ms ease,
+      transform 680ms var(--ease-out-expo);
+    will-change: transform, opacity;
+  }
+  
+  .pointer-light.is-visible {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+
+  .pointer-light.is-featured {
+    width: 38rem;
+    background:
+      radial-gradient(
+        circle,
+        rgba(174, 255, 30, 0.2) 0%,
+        rgba(134, 240, 0, 0.11) 22%,
+        rgba(19, 93, 55, 0.06) 46%,
+        rgba(2, 6, 18, 0) 72%
+      );
+   
+  }
+  
+  /*
+    Prevent the fixed light from covering navigation text and
+    interactive controls visually. It remains behind these UI layers.
+  */
+
+  .site-header {
+    z-index: 30;
+  }
+  
+  .main-navigation,
+  .button,
+  .nav-contact-link,
+  .work-filters button {
+    position: relative;
+    z-index: 1;
+  }
+  /* Touch contact pulse */
+
+  .pointer-light.is-touching {
+    opacity: 0.9;
+    transform: translate3d(-50%, -50%, 0) scale(0.82);
+    transition:
+      opacity 80ms ease,
+      transform 120ms var(--ease-out-smooth);
+  }
+
+  @media (hover: none), (pointer:coarse) {
+    .pointer-light {
+      width: 16rem;
+      mix-blend-mode: normal;
+      background:
+        radial-gradient(
+          circle,
+          rgba(174, 255, 30, 0.22) 0%,
+          rgba(134, 240, 0, 0.1) 26%,
+          rgba(2, 6, 18, 0) 68%
+        );
+    }
+     
+    .pointer-light.is-featured {
+      width: 18rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pointer-light {
+      display: none;
+    }
+  }
+   
   *,
   *::before,
   *::after {
