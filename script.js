@@ -2,22 +2,24 @@
 
 /* =========================================================
    AwterSpacer — script.js
-   Interaction and motion system
+   Navigation, filters, scroll reveals, and motion controls
    ========================================================= */
 
 const menuToggle = document.querySelector(".menu-toggle");
 const primaryMenu = document.querySelector("#primary-menu");
 const navigationLinks = document.querySelectorAll(".navigation-links a");
 const filterButtons = document.querySelectorAll(".work-filters button");
-const projectCards = document.querySelectorAll(".project-card");
+const workScenes = document.querySelectorAll(".work-scene");
 const siteHeader = document.querySelector(".site-header");
 const heroSection = document.querySelector(".hero-section");
-const sections = document.querySelectorAll("main section[id]");
-const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const pageSections = document.querySelectorAll("main section[id]");
+const reducedMotionQuery = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
 
 const mobileMenuClass = "is-menu-open";
 const activeFilterClass = "is-active";
-const hiddenProjectClass = "is-filtered-out";
+const hiddenWorkSceneClass = "is-filtered-out";
 const scrolledHeaderClass = "is-scrolled";
 const revealedClass = "is-revealed";
 
@@ -85,22 +87,23 @@ if (menuToggle && primaryMenu) {
 }
 
 /* -------------------------
-   Portfolio filtering
+   Work filtering
 ------------------------- */
 
-function filterProjects(selectedCategory) {
-  projectCards.forEach((projectCard) => {
-    const projectCategory = projectCard.dataset.category;
+function filterWorkScenes(selectedCategory) {
+  workScenes.forEach((workScene) => {
+    const workCategory = workScene.dataset.category;
     const shouldShow =
-      selectedCategory === "all" || projectCategory === selectedCategory;
+      selectedCategory === "all" || workCategory === selectedCategory;
 
-    projectCard.classList.toggle(hiddenProjectClass, !shouldShow);
-    projectCard.setAttribute("aria-hidden", String(!shouldShow));
+    workScene.classList.toggle(hiddenWorkSceneClass, !shouldShow);
+    workScene.setAttribute("aria-hidden", String(!shouldShow));
 
     if (shouldShow) {
-      projectCard.classList.remove(revealedClass);
+      workScene.classList.remove(revealedClass);
+
       window.requestAnimationFrame(() => {
-        projectCard.classList.add(revealedClass);
+        workScene.classList.add(revealedClass);
       });
     }
   });
@@ -116,16 +119,11 @@ function updateActiveFilter(selectedButton) {
 }
 
 filterButtons.forEach((button) => {
-  button.setAttribute(
-    "aria-pressed",
-    String(button.dataset.filter === "all")
-  );
-
   button.addEventListener("click", () => {
     const selectedCategory = button.dataset.filter;
 
     updateActiveFilter(button);
-    filterProjects(selectedCategory);
+    filterWorkScenes(selectedCategory);
   });
 });
 
@@ -138,9 +136,7 @@ function updateHeaderOnScroll() {
     return;
   }
 
-  const hasScrolled = window.scrollY > 24;
-
-  siteHeader.classList.toggle(scrolledHeaderClass, hasScrolled);
+  siteHeader.classList.toggle(scrolledHeaderClass, window.scrollY > 24);
 }
 
 updateHeaderOnScroll();
@@ -150,7 +146,7 @@ window.addEventListener("scroll", updateHeaderOnScroll, {
 });
 
 /* -------------------------
-   Active section navigation
+   Active navigation section
 ------------------------- */
 
 function updateActiveNavigation(entries) {
@@ -175,26 +171,27 @@ function updateActiveNavigation(entries) {
   });
 }
 
-if ("IntersectionObserver" in window && sections.length > 0) {
+if ("IntersectionObserver" in window && pageSections.length > 0) {
   const sectionObserver = new IntersectionObserver(updateActiveNavigation, {
     root: null,
     rootMargin: "-28% 0px -58% 0px",
     threshold: 0
   });
 
-  sections.forEach((section) => {
+  pageSections.forEach((section) => {
     sectionObserver.observe(section);
   });
 }
 
 /* -------------------------
-   Scroll reveal system
+   General scroll reveals
 ------------------------- */
 
 const revealSelectors = [
   ".section-heading",
   ".service-card",
-  ".project-card",
+  ".proof-introduction",
+  ".proof-card",
   ".plan-card",
   ".process-step",
   ".statement-content",
@@ -211,15 +208,14 @@ function revealAllElements() {
   revealElements.forEach((element) => {
     element.classList.add(revealedClass);
   });
+
+  workScenes.forEach((workScene) => {
+    workScene.classList.add(revealedClass);
+  });
 }
 
-function initializeScrollReveals() {
-  if (prefersReducedMotion()) {
-    revealAllElements();
-    return;
-  }
-
-  if (!("IntersectionObserver" in window)) {
+function initializeGeneralReveals() {
+  if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
     revealAllElements();
     return;
   }
@@ -254,7 +250,44 @@ function initializeScrollReveals() {
   });
 }
 
-initializeScrollReveals();
+/* -------------------------
+   Editorial work-scene reveal
+------------------------- */
+
+function initializeWorkSceneReveals() {
+  if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+    workScenes.forEach((workScene) => {
+      workScene.classList.add(revealedClass);
+    });
+
+    return;
+  }
+
+  const workSceneObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add(revealedClass);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.18
+    }
+  );
+
+  workScenes.forEach((workScene) => {
+    workSceneObserver.observe(workScene);
+  });
+}
+
+initializeGeneralReveals();
+initializeWorkSceneReveals();
 
 /* -------------------------
    Hero pointer light
@@ -280,7 +313,7 @@ if (heroSection && window.matchMedia("(pointer: fine)").matches) {
 }
 
 /* -------------------------
-   Magnetic buttons
+   Magnetic primary actions
 ------------------------- */
 
 const magneticButtons = document.querySelectorAll(
@@ -293,12 +326,11 @@ function resetMagneticButton(button) {
 }
 
 function updateMagneticButton(event) {
-  const button = event.currentTarget;
-
   if (prefersReducedMotion()) {
     return;
   }
 
+  const button = event.currentTarget;
   const buttonBounds = button.getBoundingClientRect();
   const buttonCenterX = buttonBounds.left + buttonBounds.width / 2;
   const buttonCenterY = buttonBounds.top + buttonBounds.height / 2;
@@ -313,6 +345,7 @@ function updateMagneticButton(event) {
 if (window.matchMedia("(pointer: fine)").matches) {
   magneticButtons.forEach((button) => {
     button.addEventListener("pointermove", updateMagneticButton);
+
     button.addEventListener("pointerleave", () => {
       resetMagneticButton(button);
     });
@@ -320,20 +353,26 @@ if (window.matchMedia("(pointer: fine)").matches) {
 }
 
 /* -------------------------
-   Motion preference updates
+   Reduced-motion updates
 ------------------------- */
 
 function handleMotionPreferenceChange() {
-  if (prefersReducedMotion()) {
-    revealAllElements();
-
-    if (heroSection) {
-      heroSection.style.removeProperty("--pointer-x");
-      heroSection.style.removeProperty("--pointer-y");
-    }
-
-    magneticButtons.forEach(resetMagneticButton);
+  if (!prefersReducedMotion()) {
+    return;
   }
+
+  revealAllElements();
+
+  if (heroSection) {
+    heroSection.style.removeProperty("--pointer-x");
+    heroSection.style.removeProperty("--pointer-y");
+  }
+
+  magneticButtons.forEach(resetMagneticButton);
 }
 
-reducedMotionQuery.addEventListener("change", handleMotionPreferenceChange);
+if (typeof reducedMotionQuery.addEventListener === "function") {
+  reducedMotionQuery.addEventListener("change", handleMotionPreferenceChange);
+} else {
+  reducedMotionQuery.addListener(handleMotionPreferenceChange);
+}
