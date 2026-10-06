@@ -290,8 +290,83 @@ initializeGeneralReveals();
 initializeWorkSceneReveals();
 
 /* -------------------------
-   Hero pointer light
+   Global pointer and touch light
 ------------------------- */
+
+const pointerLight = document.querySelector(".pointer-light");
+const finePointerQuery = window.matchMedia("(pointer: fine)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+
+const pointerFeatureSelectors = [
+  ".hero-section",
+  ".work-scene-media",
+  ".plan-featured",
+  ".contact-content"
+];
+
+const pointerFeatureElements = document.querySelectorAll(
+  pointerFeatureSelectors.join(", ")
+);
+
+let pointerX = window.innerWidth / 2;
+let pointerY = window.innerHeight / 2;
+let pointerFrame = null;
+let touchFadeTimeout = null;
+
+function setPointerLightPosition(x, y) {
+  if (!pointerLight) {
+    return;
+  }
+
+  pointerLight.style.left = `${x}px`;
+  pointerLight.style.top = `${y}px`;
+}
+
+function renderPointerLight() {
+  setPointerLightPosition(pointerX, pointerY);
+  pointerFrame = null;
+}
+
+function queuePointerLightPosition(x, y) {
+  pointerX = x;
+  pointerY = y;
+
+  if (pointerFrame !== null) {
+    return;
+  }
+
+  pointerFrame = window.requestAnimationFrame(renderPointerLight);
+}
+
+function showPointerLight() {
+  if (!pointerLight || prefersReducedMotion()) {
+    return;
+  }
+
+  pointerLight.classList.add("is-visible");
+}
+
+function hidePointerLight() {
+  if (!pointerLight) {
+    return;
+  }
+
+  pointerLight.classList.remove("is-visible");
+  pointerLight.classList.remove("is-touching");
+}
+
+function setPointerFeatureState(event) {
+  if (!pointerLight) {
+    return;
+  }
+
+  const isFeatureArea = pointerFeatureElements.length > 0 &&
+    Array.from(pointerFeatureElements).some((element) =>
+      element.contains(event.target)
+    );
+
+  pointerLight.classList.toggle("is-featured", isFeatureArea);
+}
 
 function updateHeroPointerLight(event) {
   if (!heroSection || prefersReducedMotion()) {
@@ -299,18 +374,116 @@ function updateHeroPointerLight(event) {
   }
 
   const heroBounds = heroSection.getBoundingClientRect();
-  const pointerX = ((event.clientX - heroBounds.left) / heroBounds.width) * 100;
-  const pointerY = ((event.clientY - heroBounds.top) / heroBounds.height) * 100;
+  const heroPointerX =
+    ((event.clientX - heroBounds.left) / heroBounds.width) * 100;
+  const heroPointerY =
+    ((event.clientY - heroBounds.top) / heroBounds.height) * 100;
 
-  heroSection.style.setProperty("--pointer-x", `${pointerX}%`);
-  heroSection.style.setProperty("--pointer-y", `${pointerY}%`);
+  heroSection.style.setProperty("--pointer-x", `${heroPointerX}%`);
+  heroSection.style.setProperty("--pointer-y", `${heroPointerY}%`);
 }
 
-if (heroSection && window.matchMedia("(pointer: fine)").matches) {
-  heroSection.addEventListener("pointermove", updateHeroPointerLight, {
+/*
+  Desktop and trackpad cursor behavior.
+  requestAnimationFrame ensures CSS changes happen at most once per repaint.
+*/
+
+function handleFinePointerMove(event) {
+  if (prefersReducedMotion()) {
+    return;
+  }
+
+  queuePointerLightPosition(event.clientX, event.clientY);
+  showPointerLight();
+  setPointerFeatureState(event);
+
+  if (heroSection && heroSection.contains(event.target)) {
+    updateHeroPointerLight(event);
+  }
+}
+
+function initializeFinePointerLight() {
+  if (!pointerLight || !finePointerQuery.matches || prefersReducedMotion()) {
+    return;
+  }
+
+  window.addEventListener("pointermove", handleFinePointerMove, {
+    passive: true
+  });
+
+  document.addEventListener("pointerleave", hidePointerLight);
+
+  window.addEventListener(
+    "blur",
+    () => {
+      hidePointerLight();
+    },
+    { passive: true }
+  );
+}
+
+/*
+  Touch behavior:
+  A brief pulse follows initial contact. It deliberately does not follow every
+  move event, so touch scrolling remains natural and inexpensive.
+*/
+
+function handleTouchStart(event) {
+  if (!pointerLight || prefersReducedMotion()) {
+    return;
+  }
+
+  const touchPoint = event.touches[0];
+
+  if (!touchPoint) {
+    return;
+  }
+
+  window.clearTimeout(touchFadeTimeout);
+
+  queuePointerLightPosition(touchPoint.clientX, touchPoint.clientY);
+
+  pointerLight.classList.add("is-visible", "is-touching");
+  setPointerFeatureState({
+    target: document.elementFromPoint(
+      touchPoint.clientX,
+      touchPoint.clientY
+    )
+  });
+}
+
+function handleTouchEnd() {
+  if (!pointerLight) {
+    return;
+  }
+
+  pointerLight.classList.remove("is-touching");
+
+  touchFadeTimeout = window.setTimeout(() => {
+    hidePointerLight();
+  }, 260);
+}
+
+function initializeTouchLight() {
+  if (!pointerLight || !coarsePointerQuery.matches || prefersReducedMotion()) {
+    return;
+  }
+
+  window.addEventListener("touchstart", handleTouchStart, {
+    passive: true
+  });
+
+  window.addEventListener("touchend", handleTouchEnd, {
+    passive: true
+  });
+
+  window.addEventListener("touchcancel", handleTouchEnd, {
     passive: true
   });
 }
+
+initializeFinePointerLight();
+initializeTouchLight();
 
 /* -------------------------
    Magnetic primary actions
@@ -368,7 +541,16 @@ function handleMotionPreferenceChange() {
     heroSection.style.removeProperty("--pointer-y");
   }
 
-  magneticButtons.forEach(resetMagneticButton);
+  if (pointerLight) {
+    pointerLight.classList.remove(
+      "is-visible",
+      "is-touching",
+      "is-featured"
+    );
+  }
+
+magneticButtons.forEach(resetMagneticButton);
+
 }
 
 if (typeof reducedMotionQuery.addEventListener === "function") {
