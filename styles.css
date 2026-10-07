@@ -1,6 +1,6 @@
 /* =========================================================
    AwterSpacer — styles.css
-   Complete visual, responsive, and motion foundation
+   Complete visual, responsive, interaction, and motion system
    ========================================================= */
 
 /* -------------------------
@@ -21,8 +21,6 @@
   --color-muted: #a8b3ae;
   --color-border: rgba(248, 249, 245, 0.22);
   --color-border-soft: rgba(248, 249, 245, 0.1);
-  --color-glass: rgba(255, 255, 255, 0.07);
-  --color-glass-strong: rgba(255, 255, 255, 0.11);
 
   --font-sans: Arial, Helvetica, sans-serif;
   --font-display: Arial, Helvetica, sans-serif;
@@ -142,7 +140,62 @@ button {
 }
 
 /* -------------------------
-   3. Typography and layout
+   3. Global pointer / touch light
+------------------------- */
+
+.pointer-light {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 32rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle,
+      rgba(174, 255, 30, 0.16) 0%,
+      rgba(134, 240, 0, 0.09) 20%,
+      rgba(21, 91, 54, 0.05) 43%,
+      rgba(2, 6, 18, 0) 70%
+    );
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0) scale(0.72);
+  transition:
+    opacity 280ms ease,
+    transform 680ms var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+
+.pointer-light.is-visible {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.pointer-light.is-featured {
+  width: 38rem;
+  background:
+    radial-gradient(
+      circle,
+      rgba(174, 255, 30, 0.2) 0%,
+      rgba(134, 240, 0, 0.11) 22%,
+      rgba(19, 93, 55, 0.06) 46%,
+      rgba(2, 6, 18, 0) 72%
+    );
+}
+
+.pointer-light.is-touching {
+  opacity: 0.9;
+  transform: translate3d(-50%, -50%, 0) scale(0.82);
+  transition:
+    opacity 80ms ease,
+    transform 120ms var(--ease-out-smooth);
+}
+
+/* -------------------------
+   4. Typography and layout
 ------------------------- */
 
 h1,
@@ -233,12 +286,12 @@ section > * {
 }
 
 /* -------------------------
-   4. Header and navigation
+   5. Header and navigation
 ------------------------- */
 
 .site-header {
   position: absolute;
-  z-index: 20;
+  z-index: 30;
   top: 0;
   right: 0;
   left: 0;
@@ -338,17 +391,12 @@ section > * {
 }
 
 .nav-contact-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   min-height: 2.85rem;
   padding: 0.65rem 1rem;
   border: 1px solid rgba(134, 240, 0, 0.5);
-  border-radius: var(--radius-pill);
   color: var(--color-night-deep);
   background: var(--color-lime);
   font-size: 0.8rem;
-  font-weight: 800;
   white-space: nowrap;
 }
 
@@ -363,7 +411,7 @@ section > * {
 }
 
 /* -------------------------
-   5. Buttons
+   6. Buttons
 ------------------------- */
 
 .button,
@@ -427,14 +475,8 @@ section > * {
   box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.18);
 }
 
-.nav-contact-link:hover,
-.nav-contact-link:focus-visible {
-  background: var(--color-lime-bright);
-  box-shadow: 0 0.9rem 2.4rem rgba(134, 240, 0, 0.25);
-}
-
 /* -------------------------
-   6. Hero
+   7. Hero
 ------------------------- */
 
 .hero-section {
@@ -590,7 +632,7 @@ section > * {
 }
 
 /* -------------------------
-   7. Services
+   8. Services
 ------------------------- */
 
 .services-section {
@@ -658,7 +700,7 @@ section > * {
 }
 
 /* -------------------------
-   8. Work filters
+   9. Work filters
 ------------------------- */
 
 .work-section {
@@ -700,15 +742,14 @@ section > * {
   transform: translateY(-0.12rem);
 }
 
-.work-filters button.is-active,
-.work-filters button:first-child.is-active {
+.work-filters button.is-active {
   border-color: rgba(134, 240, 0, 0.65);
   color: var(--color-night-deep);
   background: var(--color-lime);
 }
 
 /* -------------------------
-   9. Editorial work scenes
+   10. Editorial work scenes
 ------------------------- */
 
 .work-scenes {
@@ -904,7 +945,7 @@ section > * {
 }
 
 /* -------------------------
-   10. Proof section
+   11. Proof section
 ------------------------- */
 
 .proof-section {
@@ -982,7 +1023,7 @@ section > * {
 }
 
 /* -------------------------
-   11. Plans
+   12. Plans
 ------------------------- */
 
 .plans-section {
@@ -1091,7 +1132,7 @@ section > * {
 }
 
 /* -------------------------
-   12. Process
+   13. Process
 ------------------------- */
 
 .process-section {
@@ -1145,7 +1186,7 @@ section > * {
 }
 
 /* -------------------------
-   13. Statement
+   14. Statement
 ------------------------- */
 
 .statement-section {
@@ -1180,7 +1221,7 @@ section > * {
 }
 
 /* -------------------------
-   14. About
+   15. About
 ------------------------- */
 
 .about-section {
@@ -1248,7 +1289,7 @@ section > * {
 }
 
 /* -------------------------
-   15. Contact
+   16. Contact
 ------------------------- */
 
 .contact-section {
@@ -1296,7 +1337,7 @@ section > * {
 }
 
 /* -------------------------
-   16. Footer
+   17. Footer
 ------------------------- */
 
 .site-footer {
@@ -1342,7 +1383,7 @@ section > * {
 }
 
 /* -------------------------
-   17. Reveal system
+   18. Scroll reveal states
 ------------------------- */
 
 .section-heading,
@@ -1389,12 +1430,99 @@ section > * {
 }
 
 /* -------------------------
-   18. Mobile navigation
+   19. Tablet layout
+------------------------- */
+
+@media (max-width: 1000px) {
+  .navigation-links {
+    gap: 0.9rem;
+  }
+
+  .hero-section {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.7fr);
+  }
+
+  .services-grid,
+  .plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan-card:last-child {
+    grid-column: span 2;
+  }
+
+  .process-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .statement-section {
+    min-height: 35rem;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr auto;
+  }
+
+  .footer-legal {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+}
+
+/* -------------------------
+   20. Mobile layout and menu
 ------------------------- */
 
 @media (max-width: 760px) {
+  :root {
+    --page-padding: 1rem;
+  }
+
   body.is-menu-open {
     overflow: hidden;
+  }
+
+  section {
+    padding-top: 4.75rem;
+    padding-bottom: 4.75rem;
+  }
+
+  .pointer-light {
+    width: 16rem;
+    mix-blend-mode: normal;
+    background:
+      radial-gradient(
+        circle,
+        rgba(174, 255, 30, 0.22) 0%,
+        rgba(134, 240, 0, 0.1) 26%,
+        rgba(2, 6, 18, 0) 68%
+      );
+  }
+
+  .pointer-light.is-featured {
+    width: 18rem;
+  }
+
+  .site-header {
+    padding-top: 0.8rem;
+  }
+
+  .main-navigation {
+    min-height: 4.2rem;
+    padding: 0.55rem 0.75rem 0.55rem 1rem;
+  }
+
+  .brand-link span,
+  .nav-contact-link {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .navigation-links {
+    display: none;
   }
 
   .navigation-links.is-menu-open {
@@ -1442,95 +1570,6 @@ section > * {
   .navigation-links.is-menu-open a.is-active {
     color: var(--color-night-deep);
     background: var(--color-lime);
-  }
-
-  @keyframes mobile-menu-in {
-    from {
-      opacity: 0;
-      transform: translateY(-0.75rem) scale(0.98);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-}
-
-/* -------------------------
-   19. Tablet layout
-------------------------- */
-
-@media (max-width: 1000px) {
-  .navigation-links {
-    gap: 0.9rem;
-  }
-
-  .hero-section {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.7fr);
-  }
-
-  .services-grid,
-  .plans-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .plan-card:last-child {
-    grid-column: span 2;
-  }
-
-  .process-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .statement-section {
-    min-height: 35rem;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr auto;
-  }
-
-  .footer-legal {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-  }
-}
-
-/* -------------------------
-   20. Mobile layout
-------------------------- */
-
-@media (max-width: 760px) {
-  :root {
-    --page-padding: 1rem;
-  }
-
-  section {
-    padding-top: 4.75rem;
-    padding-bottom: 4.75rem;
-  }
-
-  .site-header {
-    padding-top: 0.8rem;
-  }
-
-  .main-navigation {
-    min-height: 4.2rem;
-    padding: 0.55rem 0.75rem 0.55rem 1rem;
-  }
-
-  .brand-link span,
-  .nav-contact-link {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .navigation-links {
-    display: none;
   }
 
   .hero-section {
@@ -1658,6 +1697,18 @@ section > * {
   .footer-legal {
     justify-content: flex-start;
   }
+
+  @keyframes mobile-menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.75rem) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 }
 
 /* -------------------------
@@ -1703,103 +1754,10 @@ section > * {
 }
 
 /* -------------------------
-   22. Reduced motion
+   22. Reduced-motion support
 ------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .pointer-light {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    width: 32rem;
-    aspect-radio: 1;
-    border-ratio: 50%;
-    opacity: 0;
-    background:
-      radial-gradient(
-        circle,
-        rgba(174, 255, 30, 0.16) 0%,
-        rgba(134, 240, 0, 0.09) 20%,
-        rgba(212, 91, 54, 0.05) 43%,
-        rgba(2, 6, 18, 0) 70%
-      );
-    mix-blend-mode: screen;
-    pointer-events: none;
-    transform: translate3d(-50%, -50%, 0) scale(0.72);
-    transition:
-      opacity 280ms ease,
-      transform 680ms var(--ease-out-expo);
-    will-change: transform, opacity;
-  }
-  
-  .pointer-light.is-visible {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-  }
-
-  .pointer-light.is-featured {
-    width: 38rem;
-    background:
-      radial-gradient(
-        circle,
-        rgba(174, 255, 30, 0.2) 0%,
-        rgba(134, 240, 0, 0.11) 22%,
-        rgba(19, 93, 55, 0.06) 46%,
-        rgba(2, 6, 18, 0) 72%
-      );
-   
-  }
-  
-  /*
-    Prevent the fixed light from covering navigation text and
-    interactive controls visually. It remains behind these UI layers.
-  */
-
-  .site-header {
-    z-index: 30;
-  }
-  
-  .main-navigation,
-  .button,
-  .nav-contact-link,
-  .work-filters button {
-    position: relative;
-    z-index: 1;
-  }
-  /* Touch contact pulse */
-
-  .pointer-light.is-touching {
-    opacity: 0.9;
-    transform: translate3d(-50%, -50%, 0) scale(0.82);
-    transition:
-      opacity 80ms ease,
-      transform 120ms var(--ease-out-smooth);
-  }
-
-  @media (hover: none), (pointer:coarse) {
-    .pointer-light {
-      width: 16rem;
-      mix-blend-mode: normal;
-      background:
-        radial-gradient(
-          circle,
-          rgba(174, 255, 30, 0.22) 0%,
-          rgba(134, 240, 0, 0.1) 26%,
-          rgba(2, 6, 18, 0) 68%
-        );
-    }
-     
-    .pointer-light.is-featured {
-      width: 18rem;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pointer-light {
-      display: none;
-    }
-  }
-   
   *,
   *::before,
   *::after {
@@ -1807,6 +1765,10 @@ section > * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .pointer-light {
+    display: none;
   }
 
   .section-heading,
