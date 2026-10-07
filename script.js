@@ -2,7 +2,7 @@
 
 /* =========================================================
    AwterSpacer — script.js
-   Navigation, filters, scroll reveals, and motion controls
+   Navigation, filters, reveals, cursor light, touch light
    ========================================================= */
 
 const menuToggle = document.querySelector(".menu-toggle");
@@ -13,9 +13,13 @@ const workScenes = document.querySelectorAll(".work-scene");
 const siteHeader = document.querySelector(".site-header");
 const heroSection = document.querySelector(".hero-section");
 const pageSections = document.querySelectorAll("main section[id]");
+const pointerLight = document.querySelector(".pointer-light");
+
 const reducedMotionQuery = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 );
+const finePointerQuery = window.matchMedia("(pointer: fine)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
 
 const mobileMenuClass = "is-menu-open";
 const activeFilterClass = "is-active";
@@ -23,8 +27,24 @@ const hiddenWorkSceneClass = "is-filtered-out";
 const scrolledHeaderClass = "is-scrolled";
 const revealedClass = "is-revealed";
 
+const pointerFeatureSelectors = [
+  ".hero-section",
+  ".work-scene-media",
+  ".plan-featured",
+  ".contact-content"
+];
+
+const pointerFeatureElements = document.querySelectorAll(
+  pointerFeatureSelectors.join(", ")
+);
+
+let pointerX = window.innerWidth / 2;
+let pointerY = window.innerHeight / 2;
+let pointerFrame = null;
+let touchFadeTimeout = null;
+
 /* -------------------------
-   Motion preferences
+   Motion preference helper
 ------------------------- */
 
 function prefersReducedMotion() {
@@ -290,28 +310,8 @@ initializeGeneralReveals();
 initializeWorkSceneReveals();
 
 /* -------------------------
-   Global pointer and touch light
+   Global pointer light
 ------------------------- */
-
-const pointerLight = document.querySelector(".pointer-light");
-const finePointerQuery = window.matchMedia("(pointer: fine)");
-const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
-
-const pointerFeatureSelectors = [
-  ".hero-section",
-  ".work-scene-media",
-  ".plan-featured",
-  ".contact-content"
-];
-
-const pointerFeatureElements = document.querySelectorAll(
-  pointerFeatureSelectors.join(", ")
-);
-
-let pointerX = window.innerWidth / 2;
-let pointerY = window.innerHeight / 2;
-let pointerFrame = null;
-let touchFadeTimeout = null;
 
 function setPointerLightPosition(x, y) {
   if (!pointerLight) {
@@ -353,17 +353,17 @@ function hidePointerLight() {
 
   pointerLight.classList.remove("is-visible");
   pointerLight.classList.remove("is-touching");
+  pointerLight.classList.remove("is-featured");
 }
 
-function setPointerFeatureState(event) {
-  if (!pointerLight) {
+function setPointerFeatureState(target) {
+  if (!pointerLight || !target) {
     return;
   }
 
-  const isFeatureArea = pointerFeatureElements.length > 0 &&
-    Array.from(pointerFeatureElements).some((element) =>
-      element.contains(event.target)
-    );
+  const isFeatureArea = Array.from(pointerFeatureElements).some((element) =>
+    element.contains(target)
+  );
 
   pointerLight.classList.toggle("is-featured", isFeatureArea);
 }
@@ -383,11 +383,6 @@ function updateHeroPointerLight(event) {
   heroSection.style.setProperty("--pointer-y", `${heroPointerY}%`);
 }
 
-/*
-  Desktop and trackpad cursor behavior.
-  requestAnimationFrame ensures CSS changes happen at most once per repaint.
-*/
-
 function handleFinePointerMove(event) {
   if (prefersReducedMotion()) {
     return;
@@ -395,7 +390,7 @@ function handleFinePointerMove(event) {
 
   queuePointerLightPosition(event.clientX, event.clientY);
   showPointerLight();
-  setPointerFeatureState(event);
+  setPointerFeatureState(event.target);
 
   if (heroSection && heroSection.contains(event.target)) {
     updateHeroPointerLight(event);
@@ -411,22 +406,14 @@ function initializeFinePointerLight() {
     passive: true
   });
 
-  document.addEventListener("pointerleave", hidePointerLight);
-
-  window.addEventListener(
-    "blur",
-    () => {
-      hidePointerLight();
-    },
-    { passive: true }
-  );
+  window.addEventListener("blur", hidePointerLight, {
+    passive: true
+  });
 }
 
-/*
-  Touch behavior:
-  A brief pulse follows initial contact. It deliberately does not follow every
-  move event, so touch scrolling remains natural and inexpensive.
-*/
+/* -------------------------
+   Mobile touch light
+------------------------- */
 
 function handleTouchStart(event) {
   if (!pointerLight || prefersReducedMotion()) {
@@ -443,13 +430,15 @@ function handleTouchStart(event) {
 
   queuePointerLightPosition(touchPoint.clientX, touchPoint.clientY);
 
-  pointerLight.classList.add("is-visible", "is-touching");
-  setPointerFeatureState({
-    target: document.elementFromPoint(
-      touchPoint.clientX,
-      touchPoint.clientY
-    )
-  });
+  pointerLight.classList.add("is-visible");
+  pointerLight.classList.add("is-touching");
+
+  const touchTarget = document.elementFromPoint(
+    touchPoint.clientX,
+    touchPoint.clientY
+  );
+
+  setPointerFeatureState(touchTarget);
 }
 
 function handleTouchEnd() {
@@ -515,7 +504,7 @@ function updateMagneticButton(event) {
   button.style.setProperty("--magnetic-y", `${distanceY * 0.14}px`);
 }
 
-if (window.matchMedia("(pointer: fine)").matches) {
+if (finePointerQuery.matches) {
   magneticButtons.forEach((button) => {
     button.addEventListener("pointermove", updateMagneticButton);
 
@@ -526,7 +515,7 @@ if (window.matchMedia("(pointer: fine)").matches) {
 }
 
 /* -------------------------
-   Reduced-motion updates
+   Reduced-motion handling
 ------------------------- */
 
 function handleMotionPreferenceChange() {
@@ -549,8 +538,7 @@ function handleMotionPreferenceChange() {
     );
   }
 
-magneticButtons.forEach(resetMagneticButton);
-
+  magneticButtons.forEach(resetMagneticButton);
 }
 
 if (typeof reducedMotionQuery.addEventListener === "function") {
