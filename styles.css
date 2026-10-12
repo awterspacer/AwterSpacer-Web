@@ -1215,9 +1215,29 @@ section > * {
 }
 
 .statement-section > img {
+  display: block;
   justify-self: center;
   width: min(100%, 21rem);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
   filter: drop-shadow(0 1.75rem 3.5rem rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 760px){
+  .statement-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: auto;
+  }
+  
+  .statement-section > img {
+    justify-self: center;
+    width: min(72vw, 22rem);
+    height: auto;
+    max-height: none;
+  }
 }
 
 /* -------------------------
