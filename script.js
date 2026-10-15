@@ -55,35 +55,76 @@ function prefersReducedMotion() {
    Mobile navigation
 ------------------------- */
 
+
+/* -------------------------
+   Header menus: navigation + language
+------------------------- */
+
+const languageSwitcher = document.querySelector(".language-switcher");
+const languageToggle = document.querySelector(".language-toggle");
+
+// Labels are read from the HTML, so every language version keeps its own text.
+const menuClosedText = menuToggle ? menuToggle.textContent.trim() : "";
+const menuClosedLabel = menuToggle
+  ? menuToggle.getAttribute("aria-label")
+  : "";
+const menuOpenText = menuToggle?.dataset.openText || "Close";
+const menuOpenLabel =
+  menuToggle?.dataset.openLabel || "Close navigation menu";
+
+function isMobileMenuOpen() {
+  return menuToggle?.getAttribute("aria-expanded") === "true";
+}
+
+function isLanguageMenuOpen() {
+  return Boolean(languageSwitcher?.open);
+}
+
+function closeLanguageMenu() {
+  if (languageSwitcher) {
+    languageSwitcher.open = false;
+  }
+}
+
 function closeMobileMenu() {
   if (!menuToggle || !primaryMenu) {
     return;
   }
 
   menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "Open navigation menu");
-  menuToggle.textContent = "Menu";
+  menuToggle.setAttribute("aria-label", menuClosedLabel);
+  menuToggle.textContent = menuClosedText;
 
   primaryMenu.classList.remove(mobileMenuClass);
   document.body.classList.remove(mobileMenuClass);
 }
 
-function toggleMobileMenu() {
+function openMobileMenu() {
   if (!menuToggle || !primaryMenu) {
     return;
   }
 
-  const isMenuOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  closeLanguageMenu();
 
-  menuToggle.setAttribute("aria-expanded", String(!isMenuOpen));
-  menuToggle.setAttribute(
-    "aria-label",
-    isMenuOpen ? "Open navigation menu" : "Close navigation menu"
-  );
-  menuToggle.textContent = isMenuOpen ? "Menu" : "Close";
+  menuToggle.setAttribute("aria-expanded", "true");
+  menuToggle.setAttribute("aria-label", menuOpenLabel);
+  menuToggle.textContent = menuOpenText;
 
-  primaryMenu.classList.toggle(mobileMenuClass, !isMenuOpen);
-  document.body.classList.toggle(mobileMenuClass, !isMenuOpen);
+  primaryMenu.classList.add(mobileMenuClass);
+  document.body.classList.add(mobileMenuClass);
+}
+
+function toggleMobileMenu() {
+  if (isMobileMenuOpen()) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function closeAllMenus() {
+  closeMobileMenu();
+  closeLanguageMenu();
 }
 
 if (menuToggle && primaryMenu) {
@@ -92,19 +133,65 @@ if (menuToggle && primaryMenu) {
   navigationLinks.forEach((link) => {
     link.addEventListener("click", closeMobileMenu);
   });
+}
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 760) {
-      closeMobileMenu();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+if (languageSwitcher) {
+  // Opening the language menu closes the navigation menu.
+  languageSwitcher.addEventListener("toggle", () => {
+    if (languageSwitcher.open) {
       closeMobileMenu();
     }
   });
 }
+
+// Click or tap outside a menu closes it.
+document.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (
+    isLanguageMenuOpen() &&
+    !languageSwitcher.contains(target)
+  ) {
+    closeLanguageMenu();
+  }
+
+  if (
+    isMobileMenuOpen() &&
+    !primaryMenu.contains(target) &&
+    !menuToggle.contains(target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+// Escape closes whichever menu is open and returns focus to its button.
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (isLanguageMenuOpen()) {
+    closeLanguageMenu();
+    languageToggle?.focus();
+  }
+
+  if (isMobileMenuOpen()) {
+    closeMobileMenu();
+    menuToggle.focus();
+  }
+});
+
+// Leaving mobile width closes the navigation menu.
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760) {
+    closeMobileMenu();
+  }
+});
+
+// Coming back with the browser's back button never shows a stale open menu.
+window.addEventListener("pageshow", closeAllMenus);
+
+
 
 /* -------------------------
    Work filtering
