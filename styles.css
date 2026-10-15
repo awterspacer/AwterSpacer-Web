@@ -290,7 +290,7 @@ section > * {
 ------------------------- */
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 30;
   top: 0;
   right: 0;
@@ -301,7 +301,7 @@ section > * {
 .main-navigation {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   width: min(100%, var(--container-wide));
   min-height: 4.75rem;
@@ -409,6 +409,110 @@ section > * {
   font-size: 0.85rem;
   font-weight: 800;
 }
+
+/* Layout: language | logo | links (centered) | contact */
+.navigation-links {
+  margin-inline: auto;
+}
+
+/* Language switcher */
+.language-switcher {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  background: rgba(248, 249, 245, 0.06);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+
+.language-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.language-toggle::after {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: -0.2rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: rotate(45deg);
+  transition: transform var(--motion-base) var(--ease-out-expo);
+}
+
+.language-switcher[open] .language-toggle::after {
+  margin-top: 0.2rem;
+  transform: rotate(-135deg);
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible,
+.language-switcher[open] .language-toggle {
+  border-color: rgba(134, 240, 0, 0.6);
+  background: rgba(134, 240, 0, 0.1);
+}
+
+.language-menu {
+  display: grid;
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 0.85rem);
+  left: 0;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: rgba(2, 6, 18, 0.96);
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  list-style: none;
+  animation: mobile-menu-in 300ms var(--ease-out-expo) both;
+}
+
+.language-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.7rem;
+  color: var(--color-white-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+
+.language-menu a:hover,
+.language-menu a:focus-visible {
+  color: var(--color-white);
+  background: rgba(248, 249, 245, 0.07);
+}
+
+.language-menu a[aria-current="page"] {
+  color: var(--color-lime);
+  background: rgba(134, 240, 0, 0.08);
+}
+
 
 /* -------------------------
    6. Buttons
@@ -1539,6 +1643,19 @@ section > * {
 
   .menu-toggle {
     display: inline-flex;
+  }
+  
+  .menu-toggle {
+    margin-left: auto;
+  }
+
+  .language-toggle {
+    min-height: 2.3rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .language-menu {
+    top: calc(100% + 0.75rem);
   }
 
   .navigation-links {
