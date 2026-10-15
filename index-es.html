@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="AwterSpacer DevOps crea experiencias digitales, sitios web, sistemas visuales y lanzamientos confiables para marcas que quieren ir más allá de lo común."
+  >
+
+  <title>AwterSpacer — Crea más allá de lo común</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="pointer-light" aria-hidden="true"></div>
+
+  <!--
+    Selector de idiomas.
+    Las versiones pendientes no apuntan a páginas inexistentes.
+  -->
+  <nav class="language-navigation" aria-label="Seleccionar idioma">
+    <a href="index.html" lang="en" hreflang="en">
+      English
+    </a>
+
+    <a
+      href="index-es.html"
+      lang="es"
+      hreflang="es"
+      aria-current="page"
+    >
+      Español
+    </a>
+
+    <span lang="pt" aria-disabled="true">
+      Português (próximamente)
+    </span>
+
+    <span lang="it" aria-disabled="true">
+      Italiano (próximamente)
+    </span>
+
+    <span lang="fr" aria-disabled="true">
+      Français (próximamente)
+    </span>
+  </nav>
+
+  <header class="site-header">
+    <nav class="main-navigation" aria-label="Navegación principal">
+      <a
+        class="brand-link"
+        href="#home"
+        aria-label="AwterSpacer: ir al inicio"
+      >
+        <img
+          src="images/image-logo.png"
+          alt="Logotipo de AwterSpacer"
+          width="160"
+          height="80"
+        >
+        <span>AwterSpacer</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="primary-menu"
+      >
+        Menú
+      </button>
+
+      <ul id="primary-menu" class="navigation-links">
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#work">Proyectos</a></li>
+        <li><a href="#plans">Planes</a></li>
+        <li><a href="#process">Proceso</a></li>
+        <li><a href="#about">Nosotros</a></li>
+      </ul>
+
+      <a class="nav-contact-link" href="#contact">
+        Inicia un proyecto
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Inicio -->
+    <section
+      id="home"
+      class="hero-section"
+      aria-labelledby="hero-title"
+    >
+      <div class="hero-content">
+        <p class="eyebrow">AwterSpacer DevOps</p>
+
+        <h1 id="hero-title">Crea más allá de lo común.</h1>
+
+        <p class="hero-description">
+          Experiencias digitales, sitios web y sistemas de identidad para
+          ideas que quieren llegar más lejos.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">
+            Explora nuestros proyectos
+          </a>
+
+          <a class="button button-secondary" href="#plans">
+            Ver planes
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-visual">
+        <img
+          src="images/image-hero-logo.png"
+          alt="Símbolo de AwterSpacer: un perfil humano con una estrella abstracta"
+          width="500"
+          height="500"
+          fetchpriority="high"
+        >
+      </figure>
+    </section>
+
+    <!-- Servicios -->
+    <section
+      id="services"
+      class="services-section"
+      aria-labelledby="services-title"
+    >
+      <div class="section-heading">
+        <p class="eyebrow">Lo que hacemos</p>
+
+        <h2 id="services-title">
+          Diseño que conecta. Desarrollo que perdura.
+        </h2>
+
+        <p>
+          Combinamos dirección visual, interacciones cuidadas y tecnología
+          confiable para crear espacios digitales que reflejen tu identidad.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <img
+            src="images/image-service-landing-pages.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>Páginas de aterrizaje</h3>
+
+          <p>
+            Páginas orientadas a la conversión, diseñadas para que tu marca
+            cause una primera impresión memorable.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-websites.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>Sitios web para empresas</h3>
+
+          <p>
+            Sitios claros, confiables y escalables que le dan a tu negocio
+            un verdadero hogar digital.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-branding.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>Sistemas de identidad</h3>
+
+          <p>
+            Bases visuales que mantienen la coherencia de tu marca en cada
+            punto de contacto digital.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-uiux.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>Diseño UI/UX</h3>
+
+          <p>
+            Interfaces intuitivas, cuidadas y con propósito desde la primera
+            interacción.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-motion.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>Animación e interacción</h3>
+
+          <p>
+            Movimiento con intención y detalles interactivos que dan vida
+            a las experiencias digitales.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="images/image-service-devops.png"
+            alt=""
+            width="120"
+            height="120"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <h3>DevOps y despliegue</h3>
+
+          <p>
+            Infraestructura confiable, acompañamiento en el lanzamiento y
+            procesos preparados para crecer después de publicar tu sitio.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section
+      id="work"
+      class="work-section"
+      aria-labelledby="work-title"
+    >
+      <div class="section-heading">
+        <p class="eyebrow">Proyectos destacados</p>
+
+        <h2 id="work-title">
+          Ideas que van más allá de lo común.
+        </h2>
+
+        <p>
+          Desde la primera impresión hasta la última interacción, cada detalle
+          tiene un propósito. Las fotografías de esta muestra son ilustrativas;
+          no representan trabajos realizados para los negocios o espacios
+          fotografiados.
+        </p>
+      </div>
+
+      <div
+        class="work-filters"
+        role="group"
+        aria-label="Categorías de proyectos"
+      >
+        <button
+          class="is-active"
+          type="button"
+          data-filter="all"
+          aria-pressed="true"
+        >
+          Todos
+        </button>
+
+        <button
+          type="button"
+          data-filter="web"
+          aria-pressed="false"
+        >
+          Web
+        </button>
+
+        <button
+          type="button"
+          data-filter="branding"
+          aria-pressed="false"
+        >
+          Identidad
+        </button>
+
+        <button
+          type="button"
+          data-filter="motion"
+          aria-pressed="false"
+        >
+          Animación
+        </button>
+
+        <button
+          type="button"
+          data-filter="systems"
+          aria-pressed="false"
+        >
+          Sistemas
+        </button>
+      </div>
+
+      <div class="work-scenes">
+        <article
+          class="work-scene work-scene-featured"
+          data-category="branding"
+        >
+          <a
+            class="work-scene-link"
+            href="#contact"
+            aria-label="Consultar sobre una campaña visual para panadería"
+          >
+            <div class="work-scene-media">
+              <div class="work-scene-image-wrap">
+                <img
+                  src="images/image1.jpg"
+                  alt="Selección de panes artesanales recién horneados"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+
+            <div class="work-scene-content">
+              <p class="project-category">
+                Identidad de marca · Campaña
+              </p>
+
+              <h3>Sistema visual para panadería</h3>
+
+              <p>
+                Una dirección visual de alto impacto para transformar las
+                ofertas de cada día en piezas promocionales claras,
+                atractivas y memorables.
+              </p>
+
+              <ul
+                class="project-tags"
+                aria-label="Entregables del proyecto"
+              >
+                <li>Dirección de arte</li>
+                <li>Diseño de campaña</li>
+                <li>Plantillas para redes</li>
+              </ul>
+
+              <span class="work-scene-link-label">
+                Explorar proyecto
+                <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <article
+          class="work-scene work-scene-reverse"
+          data-category="web"
+        >
+          <a
+            class="work-scene-link"
+            href="#contact"
+            aria-label="Consultar sobre una plataforma empresarial moderna"
+          >
+            <div class="work-scene-media">
+              <div class="work-scene-image-wrap">
+                <img
+                  src="images/image-project-website-01.jpg"
+                  alt="Computadora portátil con un editor de código en un espacio de trabajo"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+
+            <div class="work-scene-content">
+              <p class="project-category">
+                Diseño web · Desarrollo
+              </p>
+
+              <h3>Plataforma empresarial moderna</h3>
+
+              <p>
+                Un hogar digital claro y adaptable para que sea más fácil
+                conocer, elegir y confiar en una empresa en crecimiento.
+              </p>
+
+              <ul
+                class="project-tags"
+                aria-label="Entregables del proyecto"
+              >
+                <li>Diseño UI/UX</li>
+                <li>Desarrollo</li>
+                <li>Despliegue</li>
+              </ul>
+
+              <span class="work-scene-link-label">
+                Explorar proyecto
+                <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <article class="work-scene" data-category="motion">
+          <a
+            class="work-scene-link"
+            href="#contact"
+            aria-label="Consultar sobre una identidad digital en movimiento"
+          >
+            <div class="work-scene-media">
+              <div class="work-scene-image-wrap">
+                <img
+                  src="images/image-project-motion-01.jpg"
+                  alt="Patrones abstractos de luz azul que sugieren energía y movimiento"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+
+            <div class="work-scene-content">
+              <p class="project-category">
+                Animación · Identidad digital
+              </p>
+
+              <h3>Identidad digital en movimiento</h3>
+
+              <p>
+                Un sistema de identidad flexible con principios de movimiento
+                para lanzamientos digitales, campañas y nuevas expresiones
+                de marca.
+              </p>
+
+              <ul
+                class="project-tags"
+                aria-label="Entregables del proyecto"
+              >
+                <li>Sistema de animación</li>
+                <li>Identidad visual</li>
+                <li>Piezas de campaña</li>
+              </ul>
+
+              <span class="work-scene-link-label">
+                Explorar proyecto
+                <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <article
+          class="work-scene work-scene-reverse"
+          data-category="systems"
+        >
+          <a
+            class="work-scene-link"
+            href="#contact"
+            aria-label="Consultar sobre infraestructura para lanzamientos confiables"
+          >
+            <div class="work-scene-media">
+              <div class="work-scene-image-wrap">
+                <img
+                  src="images/image-project-system-01.jpg"
+                  alt="Racks de servidores con equipos activos en un centro de datos"
+                  width="1800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+
+            <div class="work-scene-content">
+              <p class="project-category">
+                Sistemas · DevOps
+              </p>
+
+              <h3>Infraestructura para lanzar con confianza</h3>
+
+              <p>
+                Un flujo de despliegue fácil de mantener, preparado para
+                publicaciones confiables, operaciones más claras y
+                crecimiento futuro.
+              </p>
+
+              <ul
+                class="project-tags"
+                aria-label="Entregables del proyecto"
+              >
+                <li>Despliegue</li>
+                <li>Automatización</li>
+                <li>Soporte técnico</li>
+              </ul>
+
+              <span class="work-scene-link-label">
+                Explorar proyecto
+                <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Valor -->
+    <section
+      class="proof-section"
+      aria-labelledby="proof-title"
+    >
+      <div class="proof-introduction">
+        <p class="eyebrow">Diseñado para avanzar</p>
+
+        <h2 id="proof-title">
+          El buen diseño hace más que verse bien.
+        </h2>
+
+        <p>
+          AwterSpacer combina claridad visual, interacciones cuidadas y una
+          implementación confiable para que tu presencia digital invite
+          a dar el siguiente paso.
+        </p>
+      </div>
+
+      <div class="proof-grid">
+        <article class="proof-card">
+          <p class="proof-value">01</p>
+
+          <h3>Primeras impresiones más claras</h3>
+
+          <p>
+            Una jerarquía visual sólida y mensajes que ayudan a entender
+            rápidamente lo que ofreces.
+          </p>
+        </article>
+
+        <article class="proof-card">
+          <p class="proof-value">02</p>
+
+          <h3>Más confianza digital</h3>
+
+          <p>
+            Sistemas de diseño coherentes y experiencias adaptables que
+            transmiten credibilidad en cualquier pantalla.
+          </p>
+        </article>
+
+        <article class="proof-card">
+          <p class="proof-value">03</p>
+
+          <h3>Preparado para evolucionar</h3>
+
+          <p>
+            Una base técnica limpia para sumar páginas, campañas,
+            integraciones y mejoras.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section
+      id="plans"
+      class="plans-section"
+      aria-labelledby="plans-title"
+    >
+      <div class="section-heading">
+        <p class="eyebrow">Planes</p>
+
+        <h2 id="plans-title">Elige tu próximo espacio.</h2>
+
+        <p>
+          Puntos de partida flexibles para marcas que quieren verse,
+          sentirse y funcionar de otra manera.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        <article class="plan-card">
+          <p class="plan-label">Para empezar con enfoque</p>
+
+          <h3>Launch</h3>
+
+          <p class="plan-description">
+            Una página de aterrizaje cuidada para una oferta, un producto,
+            una marca personal o un próximo lanzamiento.
+          </p>
+
+          <ul class="plan-features">
+            <li>Sitio web de una sola página</li>
+            <li>Diseño adaptable</li>
+            <li>Dirección visual inicial</li>
+            <li>Formulario de contacto o conversión</li>
+            <li>Acompañamiento en el lanzamiento</li>
+          </ul>
+
+          <a class="button button-secondary" href="#contact">
+            Consultar por Launch
+          </a>
+        </article>
+
+        <article class="plan-card plan-featured">
+          <p class="plan-label">Para empresas en crecimiento</p>
+
+          <h3>Elevate</h3>
+
+          <p class="plan-description">
+            Un sitio web completo y un sistema de diseño para empresas
+            listas para fortalecer su presencia digital.
+          </p>
+
+          <ul class="plan-features">
+            <li>Sitio web de varias páginas</li>
+            <li>UI/UX y estructura de contenidos</li>
+            <li>Refinamiento de marca e interfaz</li>
+            <li>Desarrollo orientado al rendimiento</li>
+            <li>Configuración del despliegue</li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">
+            Consultar por Elevate
+          </a>
+        </article>
+
+        <article class="plan-card">
+          <p class="plan-label">Para ideas ambiciosas</p>
+
+          <h3>Beyond</h3>
+
+          <p class="plan-description">
+            Una experiencia digital a medida que combina estrategia,
+            identidad, interacción, desarrollo y evolución continua.
+          </p>
+
+          <ul class="plan-features">
+            <li>Alcance y estrategia a medida</li>
+            <li>Interacción y animación avanzadas</li>
+            <li>Sistema visual completo</li>
+            <li>DevOps y flujo de despliegue</li>
+            <li>Acompañamiento para mejoras continuas</li>
+          </ul>
+
+          <a class="button button-secondary" href="#contact">
+            Crear algo a medida
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section
+      id="process"
+      class="process-section"
+      aria-labelledby="process-title"
+    >
+      <div class="section-heading">
+        <p class="eyebrow">Cómo trabajamos</p>
+
+        <h2 id="process-title">
+          Un camino claro de la idea al impacto.
+        </h2>
+      </div>
+
+      <ol class="process-list">
+        <li class="process-step">
+          <p class="process-number">01</p>
+
+          <h3>Descubrir</h3>
+
+          <p>
+            Definimos la oportunidad, el público, los objetivos, las
+            prioridades y el problema que tu presencia digital debe resolver.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">02</p>
+
+          <h3>Diseñar</h3>
+
+          <p>
+            Transformamos la estrategia en una dirección visual y estructural
+            que le da propósito a cada pantalla.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">03</p>
+
+          <h3>Desarrollar</h3>
+
+          <p>
+            Construimos la experiencia con código limpio, adaptable y fácil
+            de mantener, cuidando cada detalle del rendimiento.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">04</p>
+
+          <h3>Lanzar</h3>
+
+          <p>
+            Preparamos el sitio, configuramos su despliegue, comprobamos
+            lo esencial y lo publicamos con confianza.
+          </p>
+        </li>
+
+        <li class="process-step">
+          <p class="process-number">05</p>
+
+          <h3>Evolucionar</h3>
+
+          <p>
+            Acompañamos la siguiente etapa con mejoras, nuevas páginas,
+            campañas y sistemas preparados para crecer.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Declaración de marca -->
+    <section
+      class="statement-section"
+      aria-labelledby="statement-title"
+    >
+      <div class="statement-content">
+        <p class="eyebrow">La visión AwterSpacer</p>
+
+        <h2 id="statement-title">
+          Lo común se construye todos los días.<br>
+          Nosotros creamos lo que viene.
+        </h2>
+      </div>
+
+      <img
+        src="images/image-statement-mark.png"
+        alt=""
+        width="420"
+        height="420"
+        loading="lazy"
+        decoding="async"
+      >
+    </section>
+
+    <!-- Nosotros -->
+    <section
+      id="about"
+      class="about-section"
+      aria-labelledby="about-title"
+    >
+      <div class="section-heading">
+        <p class="eyebrow">Sobre AwterSpacer</p>
+
+        <h2 id="about-title">
+          Espacios digitales con una visión propia.
+        </h2>
+      </div>
+
+      <div class="about-content">
+        <p class="about-introduction">
+          AwterSpacer crea sitios web, experiencias digitales y sistemas
+          visuales para marcas que no quieren parecerse a todas las demás.
+        </p>
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <h3>Diseño con intención</h3>
+
+            <p>
+              Cada decisión visual y estructural debe aclarar el mensaje
+              y fortalecer la experiencia.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Desarrollo limpio</h3>
+
+            <p>
+              Un gran trabajo creativo merece una base técnica confiable.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Interacción fluida</h3>
+
+            <p>
+              El movimiento y las respuestas de la interfaz deben dar vida
+              al producto, no distraer.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <h3>Preparado para evolucionar</h3>
+
+            <p>
+              Tu espacio digital debe estar listo para la próxima versión
+              de tu marca.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section
+      id="contact"
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div class="contact-content">
+        <p class="eyebrow">Inicia un proyecto</p>
+
+        <h2 id="contact-title">
+          Tu próxima versión empieza aquí.
+        </h2>
+
+        <p>
+          ¿Tienes algo que vale la pena crear? Cuéntanos tu idea, tu objetivo
+          y hasta dónde quieres llegar.
+        </p>
+
+        <div class="contact-actions">
+          <a
+            class="button button-primary"
+            href="mailto:hello@awterspacer.com"
+          >
+            Inicia un proyecto
+          </a>
+
+          <a class="button button-secondary" href="#work">
+            Ver proyectos
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a
+      class="footer-brand-link"
+      href="#home"
+      aria-label="Volver al inicio"
+    >
+      <img
+        src="images/image-logo.png"
+        alt="Logotipo de AwterSpacer"
+        width="160"
+        height="80"
+        loading="lazy"
+        decoding="async"
+      >
+      <span>AwterSpacer DevOps</span>
+    </a>
+
+    <nav
+      class="footer-navigation"
+      aria-label="Navegación del pie de página"
+    >
+      <a href="#services">Servicios</a>
+      <a href="#work">Proyectos</a>
+      <a href="#plans">Planes</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+    <div class="footer-legal">
+      <p>© 2026 AwterSpacer. Crea más allá de lo común.</p>
+      <a href="#home">Privacidad</a>
+      <a href="#home">Términos</a>
+    </div>
+  </footer>
+</body>
+</html>
