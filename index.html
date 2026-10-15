@@ -18,6 +18,48 @@
 </head>
 
 <body>
+  <nav class="language-navigation" aria-label="Seleccionar idioma">
+    <a href="home.html" lang="en" hreflang="en">
+      English
+    </a>
+
+    <a
+      href="es/home.html"
+      lang="es"
+      hreflang="es"
+      aria-current="page"
+    >
+      Español
+    </a>
+
+    <a
+      href="pt/home.html"
+      lang="pt"
+      hreflang="pt"
+      aria-current="page"
+    >
+      Português
+    </a>
+
+    <a
+      href="it/home.html"
+      lang="it"
+      hreflang="it"
+      aria-current="page"
+    >
+      Italiano
+    </a>
+
+    <a
+      href="fr/home.html"
+      lang="fr"
+      hreflang="fr"
+      aria-current="page"
+    >
+      Français
+    </a>  
+  </nav>
+  
   <div class="pointer-light" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -75,7 +117,7 @@
       <figure class="hero-visual">
         <img
           src="images/image-hero-logo.png"
-          alt="AwterSpacer abstract head and starburst mark"
+          alt="AwterSpacer Symbol"
           width="500"
           height="500"
           fetchpriority="high"
@@ -222,7 +264,11 @@
         </p>
       </div>
 
-      <div class="work-filters" aria-label="Portfolio categories">
+      <div
+        class="work-filters"
+        role="group"
+        aria-label="Portfolio Categories"
+      >
         <button
           class="is-active"
           type="button"
@@ -273,12 +319,12 @@
           <a
             class="work-scene-link"
             href="#contact"
-            aria-label="Ask about the Panadería campaign system project"
+            aria-label="Ask about the Bakery Campaign System project"
           >
             <div class="work-scene-media">
               <div class="work-scene-image-wrap">
                 <img
-                  src="images/image1.jpg"
+                  src="images/image-work1.jpg"
                   alt="Promotional bakery campaign artwork created by AwterSpacer"
                   width="900"
                   height="1200"
@@ -546,7 +592,7 @@
             <li>UI/UX and content structure</li>
             <li>Brand and interface refinement</li>
             <li>Performance-ready build</li>
-            <li>Deployment setup</li>
+            <li>Deployment setup for multiple languages</li>
           </ul>
 
           <a class="button button-primary" href="#contact">
@@ -642,7 +688,7 @@
 
           <p>
             We support the next iteration through improvements, new pages,
-            campaign work, and scalable systems.
+            campaign work, blogs and scalable systems.
           </p>
         </li>
       </ol>
@@ -732,7 +778,7 @@
         </p>
 
         <div class="contact-actions">
-          <a class="button button-primary" href="mailto:hello@awterspacer.com">
+          <a class="button button-primary" href="mailto:awterspacer@gmail.com">
             Start a project
           </a>
 
