@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta
@@ -8,66 +8,59 @@
   >
   <meta
     name="description"
-    content="AwterSpacer DevOps creates digital experiences, websites, visual systems, and reliable launches for brands ready to build beyond ordinary."
+    content="AwterSpacer DevOps crea experiencias digitales, sitios web, sistemas visuales y lanzamientos confiables para marcas listas para ir más allá de lo común."
   >
 
   <title>AwterSpacer — Build Beyond Ordinary</title>
 
   <link rel="stylesheet" href="styles.css">
+
+  <link rel="alternate" hreflang="es" href="home.html">
+  <link rel="alternate" hreflang="en" href="en/home.html">
+  <link rel="alternate" hreflang="pt" href="pt/home.html">
+  <link rel="alternate" hreflang="it" href="it/home.html">
+  <link rel="alternate" hreflang="fr" href="fr/home.html">
+  <link rel="alternate" hreflang="x-default" href="home.html">
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <nav class="language-navigation" aria-label="Seleccionar idioma">
-    <a href="home.html" lang="en" hreflang="en">
-      English
-    </a>
-
-    <a
-      href="es/home.html"
-      lang="es"
-      hreflang="es"
-      aria-current="page"
-    >
-      Español
-    </a>
-
-    <a
-      href="pt/home.html"
-      lang="pt"
-      hreflang="pt"
-      aria-current="page"
-    >
-      Português
-    </a>
-
-    <a
-      href="it/home.html"
-      lang="it"
-      hreflang="it"
-      aria-current="page"
-    >
-      Italiano
-    </a>
-
-    <a
-      href="fr/home.html"
-      lang="fr"
-      hreflang="fr"
-      aria-current="page"
-    >
-      Français
-    </a>  
-  </nav>
-  
   <div class="pointer-light" aria-hidden="true"></div>
 
   <header class="site-header">
-    <nav class="main-navigation" aria-label="Primary navigation">
-      <a class="brand-link" href="#home" aria-label="AwterSpacer home">
+    <nav class="main-navigation" aria-label="Navegación principal">
+      <!--
+        Selector de idioma: primer elemento del encabezado, a la izquierda.
+        <details> se abre y se cierra de forma nativa, incluso sin JavaScript.
+      -->
+      <details class="language-switcher">
+        <summary class="language-toggle" aria-label="Elegir idioma">
+          <span aria-hidden="true">ES</span>
+        </summary>
+
+        <ul class="language-menu" aria-label="Idiomas">
+          <li>
+            <a href="home.html" lang="es" hreflang="es" aria-current="page">Español</a>
+          </li>
+          <li>
+            <a href="en/home.html" lang="en" hreflang="en">English</a>
+          </li>
+          <li>
+            <a href="pt/home.html" lang="pt" hreflang="pt">Português</a>
+          </li>
+          <li>
+            <a href="it/home.html" lang="it" hreflang="it">Italiano</a>
+          </li>
+          <li>
+            <a href="fr/home.html" lang="fr" hreflang="fr">Français</a>
+          </li>
+        </ul>
+      </details>
+
+      <a class="brand-link" href="#home" aria-label="AwterSpacer: ir al inicio">
         <img
           src="images/image-logo.png"
-          alt="AwterSpacer logo"
+          alt="Logotipo de AwterSpacer"
           width="160"
           height="80"
         >
@@ -77,22 +70,24 @@
       <button
         class="menu-toggle"
         type="button"
-        aria-label="Open navigation menu"
+        aria-label="Abrir menú de navegación"
         aria-expanded="false"
         aria-controls="primary-menu"
+        data-open-text="Cerrar"
+        data-open-label="Cerrar menú de navegación"
       >
-        More
+        Más
       </button>
 
       <ul id="primary-menu" class="navigation-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#plans">Plans</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#work">Proyectos</a></li>
+        <li><a href="#plans">Planes</a></li>
+        <li><a href="#process">Proceso</a></li>
+        <li><a href="#about">Nosotros</a></li>
       </ul>
 
-      <a class="nav-contact-link" href="#contact">Start a project</a>
+      <a class="nav-contact-link" href="#contact">Inicia un proyecto</a>
     </nav>
   </header>
 
@@ -101,23 +96,23 @@
       <div class="hero-content">
         <p class="eyebrow">AwterSpacer DevOps</p>
 
-        <h1 id="hero-title">Build beyond ordinary.</h1>
+        <h1 id="hero-title" lang="en">Build beyond ordinary.</h1>
 
         <p class="hero-description">
-          Digital experiences, websites, and brand systems for ideas with
-          somewhere better to go.
+          Experiencias digitales, sitios web y sistemas de marca para ideas
+          que quieren llegar más lejos.
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#work">Explore our work</a>
-          <a class="button button-secondary" href="#plans">View plans</a>
+          <a class="button button-primary" href="#work">Explora nuestros proyectos</a>
+          <a class="button button-secondary" href="#plans">Ver planes</a>
         </div>
       </div>
 
       <figure class="hero-visual">
         <img
           src="images/image-hero-logo.png"
-          alt="AwterSpacer Symbol"
+          alt="Símbolo de AwterSpacer"
           width="500"
           height="500"
           fetchpriority="high"
@@ -131,13 +126,13 @@
       aria-labelledby="services-title"
     >
       <div class="section-heading">
-        <p class="eyebrow">Capabilities</p>
+        <p class="eyebrow">Lo que hacemos</p>
 
-        <h2 id="services-title">Designed to move. Built to last.</h2>
+        <h2 id="services-title">Diseño que conecta. Desarrollo que perdura.</h2>
 
         <p>
-          We combine visual direction, thoughtful interaction, and dependable
-          technology to create digital spaces that feel unmistakably yours.
+          Combinamos dirección visual, interacciones cuidadas y tecnología
+          confiable para crear espacios digitales que reflejen tu identidad.
         </p>
       </div>
 
@@ -152,11 +147,11 @@
             decoding="async"
           >
 
-          <h3>Landing pages</h3>
+          <h3>Páginas de aterrizaje</h3>
 
           <p>
-            High-conversion pages designed to give your brand a stronger first
-            impression.
+            Páginas orientadas a la conversión, diseñadas para que tu marca
+            cause una primera impresión memorable.
           </p>
         </article>
 
@@ -170,11 +165,11 @@
             decoding="async"
           >
 
-          <h3>Business websites</h3>
+          <h3>Sitios web para empresas</h3>
 
           <p>
-            Clear, credible, and scalable websites that give your business a
-            proper digital home.
+            Sitios claros, confiables y escalables que le dan a tu negocio
+            un verdadero hogar digital.
           </p>
         </article>
 
@@ -188,11 +183,11 @@
             decoding="async"
           >
 
-          <h3>Brand systems</h3>
+          <h3>Sistemas de marca</h3>
 
           <p>
-            Visual foundations that help your identity stay consistent across
-            every digital touchpoint.
+            Bases visuales que mantienen la coherencia de tu identidad en cada
+            punto de contacto digital.
           </p>
         </article>
 
@@ -206,11 +201,11 @@
             decoding="async"
           >
 
-          <h3>UI/UX design</h3>
+          <h3>Diseño UI/UX</h3>
 
           <p>
-            Interfaces that feel intuitive, polished, and intentional from the
-            first interaction.
+            Interfaces intuitivas, cuidadas y con propósito desde la primera
+            interacción.
           </p>
         </article>
 
@@ -224,11 +219,11 @@
             decoding="async"
           >
 
-          <h3>Motion and interaction</h3>
+          <h3>Animación e interacción</h3>
 
           <p>
-            Purposeful movement and responsive details that give digital
-            experiences their energy.
+            Movimiento con intención y detalles interactivos que dan energía
+            a las experiencias digitales.
           </p>
         </article>
 
@@ -242,11 +237,11 @@
             decoding="async"
           >
 
-          <h3>DevOps and deployment</h3>
+          <h3>DevOps y despliegue</h3>
 
           <p>
-            Reliable infrastructure, launch support, and workflows built for
-            growth after the website goes live.
+            Infraestructura confiable, acompañamiento en el lanzamiento y
+            procesos preparados para crecer después de publicar tu sitio.
           </p>
         </article>
       </div>
@@ -254,20 +249,20 @@
 
     <section id="work" class="work-section" aria-labelledby="work-title">
       <div class="section-heading">
-        <p class="eyebrow">Selected work</p>
+        <p class="eyebrow">Proyectos destacados</p>
 
-        <h2 id="work-title">A few things we’ve built beyond ordinary.</h2>
+        <h2 id="work-title">Algunos proyectos que van más allá de lo común.</h2>
 
         <p>
-          From first impression to final interaction, every detail has a
-          purpose.
+          Desde la primera impresión hasta la última interacción, cada detalle
+          tiene un propósito.
         </p>
       </div>
 
       <div
         class="work-filters"
         role="group"
-        aria-label="Portfolio Categories"
+        aria-label="Categorías de proyectos"
       >
         <button
           class="is-active"
@@ -275,7 +270,7 @@
           data-filter="all"
           aria-pressed="true"
         >
-          All work
+          Todos
         </button>
 
         <button
@@ -291,7 +286,7 @@
           data-filter="branding"
           aria-pressed="false"
         >
-          Branding
+          Identidad
         </button>
 
         <button
@@ -299,7 +294,7 @@
           data-filter="motion"
           aria-pressed="false"
         >
-          Motion
+          Animación
         </button>
 
         <button
@@ -307,7 +302,7 @@
           data-filter="systems"
           aria-pressed="false"
         >
-          Systems
+          Sistemas
         </button>
       </div>
 
@@ -319,13 +314,13 @@
           <a
             class="work-scene-link"
             href="#contact"
-            aria-label="Ask about the Bakery Campaign System project"
+            aria-label="Consultar sobre el sistema de campaña para panadería"
           >
             <div class="work-scene-media">
               <div class="work-scene-image-wrap">
                 <img
                   src="images/image-work1.jpg"
-                  alt="Promotional bakery campaign artwork created by AwterSpacer"
+                  alt="Pieza promocional de campaña para panadería creada por AwterSpacer"
                   width="900"
                   height="1200"
                   loading="lazy"
@@ -335,24 +330,24 @@
             </div>
 
             <div class="work-scene-content">
-              <p class="project-category">Brand identity · Campaign</p>
+              <p class="project-category">Identidad de marca · Campaña</p>
 
-              <h3>Panadería campaign system</h3>
+              <h3>Sistema de campaña para panadería</h3>
 
               <p>
-                A high-impact promotional visual direction designed to turn
-                everyday bakery offers into bright, clear, scroll-stopping
-                moments.
+                Una dirección visual promocional de alto impacto para convertir
+                las ofertas de cada día en piezas luminosas, claras y que
+                detienen el scroll.
               </p>
 
-              <ul class="project-tags" aria-label="Project deliverables">
-                <li>Art direction</li>
-                <li>Campaign layout</li>
-                <li>Social templates</li>
+              <ul class="project-tags" aria-label="Entregables del proyecto">
+                <li>Dirección de arte</li>
+                <li>Diseño de campaña</li>
+                <li>Plantillas para redes</li>
               </ul>
 
               <span class="work-scene-link-label">
-                Explore project <span aria-hidden="true">↗</span>
+                Explorar proyecto <span aria-hidden="true">↗</span>
               </span>
             </div>
           </a>
@@ -365,13 +360,13 @@
           <a
             class="work-scene-link"
             href="#contact"
-            aria-label="Ask about the modern business platform project"
+            aria-label="Consultar sobre la plataforma empresarial moderna"
           >
             <div class="work-scene-media">
               <div class="work-scene-image-wrap">
                 <img
                   src="images/image-project-website-01.jpg"
-                  alt="Modern business website preview displayed on a desktop screen"
+                  alt="Vista previa de un sitio web empresarial moderno en una pantalla de escritorio"
                   width="1800"
                   height="1200"
                   loading="lazy"
@@ -381,23 +376,23 @@
             </div>
 
             <div class="work-scene-content">
-              <p class="project-category">Web design · Development</p>
+              <p class="project-category">Diseño web · Desarrollo</p>
 
-              <h3>Modern business platform</h3>
+              <h3>Plataforma empresarial moderna</h3>
 
               <p>
-                A clear, responsive digital home built to make a growing
-                business easier to understand, trust, and choose.
+                Un hogar digital claro y adaptable para que sea más fácil
+                entender, confiar y elegir a una empresa en crecimiento.
               </p>
 
-              <ul class="project-tags" aria-label="Project deliverables">
-                <li>UI/UX design</li>
-                <li>Development</li>
-                <li>Deployment</li>
+              <ul class="project-tags" aria-label="Entregables del proyecto">
+                <li>Diseño UI/UX</li>
+                <li>Desarrollo</li>
+                <li>Despliegue</li>
               </ul>
 
               <span class="work-scene-link-label">
-                Explore project <span aria-hidden="true">↗</span>
+                Explorar proyecto <span aria-hidden="true">↗</span>
               </span>
             </div>
           </a>
@@ -407,13 +402,13 @@
           <a
             class="work-scene-link"
             href="#contact"
-            aria-label="Ask about the digital identity in motion project"
+            aria-label="Consultar sobre la identidad digital en movimiento"
           >
             <div class="work-scene-media">
               <div class="work-scene-image-wrap">
                 <img
                   src="images/image-project-motion-01.jpg"
-                  alt="Animated visual identity concept"
+                  alt="Concepto de identidad visual animada"
                   width="1800"
                   height="1200"
                   loading="lazy"
@@ -423,23 +418,24 @@
             </div>
 
             <div class="work-scene-content">
-              <p class="project-category">Motion · Digital identity</p>
+              <p class="project-category">Animación · Identidad digital</p>
 
-              <h3>Digital identity in motion</h3>
+              <h3>Identidad digital en movimiento</h3>
 
               <p>
-                A flexible identity system built with movement principles for
-                digital launches, campaigns, and future brand expression.
+                Un sistema de identidad flexible, construido con principios de
+                movimiento para lanzamientos digitales, campañas y nuevas
+                expresiones de marca.
               </p>
 
-              <ul class="project-tags" aria-label="Project deliverables">
-                <li>Motion system</li>
-                <li>Visual identity</li>
-                <li>Campaign assets</li>
+              <ul class="project-tags" aria-label="Entregables del proyecto">
+                <li>Sistema de animación</li>
+                <li>Identidad visual</li>
+                <li>Piezas de campaña</li>
               </ul>
 
               <span class="work-scene-link-label">
-                Explore project <span aria-hidden="true">↗</span>
+                Explorar proyecto <span aria-hidden="true">↗</span>
               </span>
             </div>
           </a>
@@ -452,13 +448,13 @@
           <a
             class="work-scene-link"
             href="#contact"
-            aria-label="Ask about the reliable launch infrastructure project"
+            aria-label="Consultar sobre la infraestructura para lanzamientos confiables"
           >
             <div class="work-scene-media">
               <div class="work-scene-image-wrap">
                 <img
                   src="images/image-project-system-01.jpg"
-                  alt="Development workflow and deployment system preview"
+                  alt="Vista previa de un flujo de desarrollo y sistema de despliegue"
                   width="1800"
                   height="1200"
                   loading="lazy"
@@ -468,23 +464,24 @@
             </div>
 
             <div class="work-scene-content">
-              <p class="project-category">Systems · DevOps</p>
+              <p class="project-category">Sistemas · DevOps</p>
 
-              <h3>Reliable launch infrastructure</h3>
+              <h3>Infraestructura para lanzar con confianza</h3>
 
               <p>
-                A maintainable deployment workflow built for dependable
-                releases, clearer operations, and future growth.
+                Un flujo de despliegue fácil de mantener, preparado para
+                publicaciones confiables, operaciones más claras y
+                crecimiento futuro.
               </p>
 
-              <ul class="project-tags" aria-label="Project deliverables">
-                <li>Deployment</li>
-                <li>Automation</li>
-                <li>Technical support</li>
+              <ul class="project-tags" aria-label="Entregables del proyecto">
+                <li>Despliegue</li>
+                <li>Automatización</li>
+                <li>Soporte técnico</li>
               </ul>
 
               <span class="work-scene-link-label">
-                Explore project <span aria-hidden="true">↗</span>
+                Explorar proyecto <span aria-hidden="true">↗</span>
               </span>
             </div>
           </a>
@@ -494,14 +491,14 @@
 
     <section class="proof-section" aria-labelledby="proof-title">
       <div class="proof-introduction">
-        <p class="eyebrow">Built for momentum</p>
+        <p class="eyebrow">Diseñado para avanzar</p>
 
-        <h2 id="proof-title">Good design should do more than look good.</h2>
+        <h2 id="proof-title">El buen diseño debe hacer más que verse bien.</h2>
 
         <p>
-          AwterSpacer brings together visual clarity, thoughtful interaction,
-          and dependable implementation so your digital presence can move
-          people toward the next step.
+          AwterSpacer combina claridad visual, interacciones cuidadas y una
+          implementación confiable para que tu presencia digital invite a
+          las personas a dar el siguiente paso.
         </p>
       </div>
 
@@ -509,33 +506,33 @@
         <article class="proof-card">
           <p class="proof-value">01</p>
 
-          <h3>Clearer first impressions</h3>
+          <h3>Primeras impresiones más claras</h3>
 
           <p>
-            Strong visual hierarchy and messaging that help visitors understand
-            what you offer, quickly.
+            Una jerarquía visual sólida y mensajes que ayudan a entender
+            rápidamente lo que ofreces.
           </p>
         </article>
 
         <article class="proof-card">
           <p class="proof-value">02</p>
 
-          <h3>Better digital trust</h3>
+          <h3>Más confianza digital</h3>
 
           <p>
-            Consistent design systems and responsive experiences built to make
-            a business feel credible at every screen size.
+            Sistemas de diseño coherentes y experiencias adaptables que
+            transmiten credibilidad en cualquier tamaño de pantalla.
           </p>
         </article>
 
         <article class="proof-card">
           <p class="proof-value">03</p>
 
-          <h3>Ready to evolve</h3>
+          <h3>Preparado para evolucionar</h3>
 
           <p>
-            A clean technical foundation for future pages, campaigns,
-            integrations, and improvements.
+            Una base técnica limpia para futuras páginas, campañas,
+            integraciones y mejoras.
           </p>
         </article>
       </div>
@@ -543,83 +540,83 @@
 
     <section id="plans" class="plans-section" aria-labelledby="plans-title">
       <div class="section-heading">
-        <p class="eyebrow">Plans</p>
+        <p class="eyebrow">Planes</p>
 
-        <h2 id="plans-title">Choose your next space.</h2>
+        <h2 id="plans-title">Elige tu próximo espacio.</h2>
 
         <p>
-          Flexible starting points for brands ready to look, feel, and operate
-          differently.
+          Puntos de partida flexibles para marcas listas para verse, sentirse
+          y funcionar de otra manera.
         </p>
       </div>
 
       <div class="plans-grid">
         <article class="plan-card">
-          <p class="plan-label">For a focused beginning</p>
+          <p class="plan-label">Para empezar con enfoque</p>
 
           <h3>Launch</h3>
 
           <p class="plan-description">
-            A polished landing page for an offer, product, personal brand, or
-            upcoming release.
+            Una página de aterrizaje cuidada para una oferta, un producto, una
+            marca personal o un próximo lanzamiento.
           </p>
 
           <ul class="plan-features">
-            <li>One-page website</li>
-            <li>Responsive layout</li>
-            <li>Core visual direction</li>
-            <li>Contact or conversion form</li>
-            <li>Launch support</li>
+            <li>Sitio web de una sola página</li>
+            <li>Diseño adaptable</li>
+            <li>Dirección visual base</li>
+            <li>Formulario de contacto o conversión</li>
+            <li>Acompañamiento en el lanzamiento</li>
           </ul>
 
           <a class="button button-secondary" href="#contact">
-            Ask about Launch
+            Consultar por Launch
           </a>
         </article>
 
         <article class="plan-card plan-featured">
-          <p class="plan-label">For growing businesses</p>
+          <p class="plan-label">Para empresas en crecimiento</p>
 
           <h3>Elevate</h3>
 
           <p class="plan-description">
-            A complete website and design system for a business ready to create
-            a stronger digital presence.
+            Un sitio web completo y un sistema de diseño para empresas listas
+            para construir una presencia digital más sólida.
           </p>
 
           <ul class="plan-features">
-            <li>Multi-page website</li>
-            <li>UI/UX and content structure</li>
-            <li>Brand and interface refinement</li>
-            <li>Performance-ready build</li>
-            <li>Deployment setup for multiple languages</li>
+            <li>Sitio web de varias páginas</li>
+            <li>UI/UX y estructura de contenidos</li>
+            <li>Refinamiento de marca e interfaz</li>
+            <li>Desarrollo optimizado para el rendimiento</li>
+            <li>Configuración del despliegue en varios idiomas</li>
           </ul>
 
           <a class="button button-primary" href="#contact">
-            Ask about Elevate
+            Consultar por Elevate
           </a>
         </article>
 
         <article class="plan-card">
-          <p class="plan-label">For ambitious ideas</p>
+          <p class="plan-label">Para ideas ambiciosas</p>
 
           <h3>Beyond</h3>
 
           <p class="plan-description">
-            A custom digital experience combining strategy, identity,
-            interaction, engineering, and ongoing evolution.
+            Una experiencia digital a medida que combina estrategia, identidad,
+            interacción, ingeniería y evolución continua.
           </p>
 
           <ul class="plan-features">
-            <li>Custom scope and strategy</li>
-            <li>Advanced interaction and motion</li>
-            <li>Full visual system</li>
-            <li>DevOps and deployment workflow</li>
-            <li>Ongoing improvement support</li>
+            <li>Alcance y estrategia a medida</li>
+            <li>Interacción y animación avanzadas</li>
+            <li>Sistema visual completo</li>
+            <li>DevOps y flujo de despliegue</li>
+            <li>Acompañamiento para mejoras continuas</li>
           </ul>
 
           <a class="button button-secondary" href="#contact">
-            Build something custom
+            Crear algo a medida
           </a>
         </article>
       </div>
@@ -631,64 +628,64 @@
       aria-labelledby="process-title"
     >
       <div class="section-heading">
-        <p class="eyebrow">How we work</p>
+        <p class="eyebrow">Cómo trabajamos</p>
 
-        <h2 id="process-title">A clear path from idea to impact.</h2>
+        <h2 id="process-title">Un camino claro de la idea al impacto.</h2>
       </div>
 
       <ol class="process-list">
         <li class="process-step">
           <p class="process-number">01</p>
 
-          <h3>Discover</h3>
+          <h3>Descubrir</h3>
 
           <p>
-            We define the opportunity, audience, goals, priorities, and the
-            problem your digital presence needs to solve.
+            Definimos la oportunidad, el público, los objetivos, las
+            prioridades y el problema que tu presencia digital debe resolver.
           </p>
         </li>
 
         <li class="process-step">
           <p class="process-number">02</p>
 
-          <h3>Design</h3>
+          <h3>Diseñar</h3>
 
           <p>
-            We turn strategy into a visual and structural direction that gives
-            every screen a purpose.
+            Transformamos la estrategia en una dirección visual y estructural
+            que le da propósito a cada pantalla.
           </p>
         </li>
 
         <li class="process-step">
           <p class="process-number">03</p>
 
-          <h3>Build</h3>
+          <h3>Desarrollar</h3>
 
           <p>
-            We develop the experience with clean, responsive, maintainable code
-            and careful attention to performance.
+            Construimos la experiencia con código limpio, adaptable y fácil de
+            mantener, cuidando cada detalle del rendimiento.
           </p>
         </li>
 
         <li class="process-step">
           <p class="process-number">04</p>
 
-          <h3>Launch</h3>
+          <h3>Lanzar</h3>
 
           <p>
-            We prepare the site, configure its deployment, test the essentials,
-            and take it live with confidence.
+            Preparamos el sitio, configuramos su despliegue, probamos lo
+            esencial y lo publicamos con confianza.
           </p>
         </li>
 
         <li class="process-step">
           <p class="process-number">05</p>
 
-          <h3>Evolve</h3>
+          <h3>Evolucionar</h3>
 
           <p>
-            We support the next iteration through improvements, new pages,
-            campaign work, blogs and scalable systems.
+            Acompañamos la siguiente etapa con mejoras, nuevas páginas,
+            campañas, blogs y sistemas escalables.
           </p>
         </li>
       </ol>
@@ -696,11 +693,11 @@
 
     <section class="statement-section" aria-labelledby="statement-title">
       <div class="statement-content">
-        <p class="eyebrow">The AwterSpacer mindset</p>
+        <p class="eyebrow">La visión AwterSpacer</p>
 
         <h2 id="statement-title">
-          Ordinary gets built every day.<br>
-          We build what comes next.
+          Lo común se construye todos los días.<br>
+          Nosotros creamos lo que viene.
         </h2>
       </div>
 
@@ -716,50 +713,50 @@
 
     <section id="about" class="about-section" aria-labelledby="about-title">
       <div class="section-heading">
-        <p class="eyebrow">About AwterSpacer</p>
+        <p class="eyebrow">Sobre AwterSpacer</p>
 
-        <h2 id="about-title">Digital spaces with a point of view.</h2>
+        <h2 id="about-title">Espacios digitales con una visión propia.</h2>
       </div>
 
       <div class="about-content">
         <p class="about-introduction">
-          AwterSpacer creates websites, digital experiences, and visual systems
-          for brands that refuse to look like everyone else.
+          AwterSpacer crea sitios web, experiencias digitales y sistemas
+          visuales para marcas que no quieren parecerse a todas las demás.
         </p>
 
         <div class="principles-grid">
           <article class="principle-card">
-            <h3>Intentional design</h3>
+            <h3>Diseño con intención</h3>
 
             <p>
-              Every visual and structural choice should make the message clearer
-              and the experience stronger.
+              Cada decisión visual y estructural debe aclarar el mensaje y
+              fortalecer la experiencia.
             </p>
           </article>
 
           <article class="principle-card">
-            <h3>Clean engineering</h3>
+            <h3>Ingeniería limpia</h3>
 
             <p>
-              Strong creative work deserves a reliable technical foundation.
+              Un gran trabajo creativo merece una base técnica confiable.
             </p>
           </article>
 
           <article class="principle-card">
-            <h3>Fluid interaction</h3>
+            <h3>Interacción fluida</h3>
 
             <p>
-              Motion and feedback should make a product feel alive, not
-              distracted.
+              El movimiento y las respuestas de la interfaz deben dar vida al
+              producto, no distraer.
             </p>
           </article>
 
           <article class="principle-card">
-            <h3>Built for evolution</h3>
+            <h3>Pensado para evolucionar</h3>
 
             <p>
-              Your digital space should be ready for the version of your brand
-              that comes next.
+              Tu espacio digital debe estar listo para la próxima versión de
+              tu marca.
             </p>
           </article>
         </div>
@@ -768,31 +765,31 @@
 
     <section id="contact" class="contact-section" aria-labelledby="contact-title">
       <div class="contact-content">
-        <p class="eyebrow">Start a project</p>
+        <p class="eyebrow">Inicia un proyecto</p>
 
-        <h2 id="contact-title">Your next version starts here.</h2>
+        <h2 id="contact-title">Tu próxima versión empieza aquí.</h2>
 
         <p>
-          Have something worth building? Tell us about the idea, the goal, and
-          where you want to go next.
+          ¿Tienes algo que vale la pena construir? Cuéntanos tu idea, tu
+          objetivo y hasta dónde quieres llegar.
         </p>
 
         <div class="contact-actions">
           <a class="button button-primary" href="mailto:awterspacer@gmail.com">
-            Start a project
+            Inicia un proyecto
           </a>
 
-          <a class="button button-secondary" href="#work">See the work</a>
+          <a class="button button-secondary" href="#work">Ver proyectos</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand-link" href="#home" aria-label="Back to top">
+    <a class="footer-brand-link" href="#home" aria-label="Volver al inicio">
       <img
         src="images/image-logo.png"
-        alt="AwterSpacer logo"
+        alt="Logotipo de AwterSpacer"
         width="160"
         height="80"
         loading="lazy"
@@ -801,18 +798,18 @@
       <span>AwterSpacer DevOps</span>
     </a>
 
-    <nav class="footer-navigation" aria-label="Footer navigation">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#plans">Plans</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <nav class="footer-navigation" aria-label="Navegación del pie de página">
+      <a href="#services">Servicios</a>
+      <a href="#work">Proyectos</a>
+      <a href="#plans">Planes</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contact">Contacto</a>
     </nav>
 
     <div class="footer-legal">
-      <p>© 2026 AwterSpacer. Build beyond ordinary.</p>
-      <a href="#home">Privacy</a>
-      <a href="#home">Terms</a>
+      <p>© 2026 AwterSpacer. <span lang="en">Build beyond ordinary.</span></p>
+      <a href="#home">Privacidad</a>
+      <a href="#home">Términos</a>
     </div>
   </footer>
 </body>
